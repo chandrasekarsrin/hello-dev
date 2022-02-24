@@ -42,7 +42,7 @@ steps:
       echo OCI_BUILD_STAGE_NAME: $OCI_BUILD_STAGE_NAME
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
-      echo "hello world"
+      echo "hello world from yashwant"
       whoami
       ls -lart
       git branch
