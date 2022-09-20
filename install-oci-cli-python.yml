@@ -21,3 +21,4 @@ steps:
       source oracle-cli/bin/activate
       pip install oci-cli
       oci --version
+      oci os ns get
