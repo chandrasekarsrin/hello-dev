@@ -1,0 +1,23 @@
+version: 0.1
+component: build
+timeoutInSeconds: 20000
+runAs: root
+shell: bash
+env:
+  exportedVariables:
+   - version
+steps:
+  - type: Command
+    name: "Check python and OCI CLI version"
+    command: |
+      yum groupinstall 'development tools' -y && yum install wget openssl-devel bzip2-devel libffi-devel xz-devel -y
+      yum -y install gcc wget openssl-devel bzip2-devel libffi-devel
+      wget https://www.python.org/ftp/python/3.8.13/Python-3.8.13.tgz
+      tar -xzf Python-3.8.13.tgz
+      cd Python-3.8.13
+      ./configure --enable-optimizations --with-ssl
+      make altinstall
+      python3.8 -m venv oracle-cli
+      source oracle-cli/bin/activate
+      pip install oci-cli
+      oci --version
