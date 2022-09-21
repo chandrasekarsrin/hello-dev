@@ -4,6 +4,9 @@ timeoutInSeconds: 20000
 runAs: root
 shell: bash
 env:
+  vaultVariables:
+    configFile : ocid1.vaultsecret.oc1.iad.amaaaaaam4dsnniathe2aptqi45b422kpb3vhzkoqebrw3mpm3poidrcvmxq
+    ociCliApiPrivateKey : ocid1.vaultsecret.oc1.iad.amaaaaaam4dsnniavcfxfwfgds2mtxfi4jxwygo4bofdz4cicb3kvgvcas2a
   exportedVariables:
    - version
 steps:
@@ -11,6 +14,14 @@ steps:
     name: "Install python and OCI CLI version"
     command: |
       yum groupinstall 'development tools' -y && yum install wget openssl-devel bzip2-devel libffi-devel xz-devel -y
+      
+      mkdir -p /workspace/oci-cli
+      echo $ociCliApiPrivateKey | base64 --decode > /workspace/oci-cli/oci_api_key.pem
+      echo $configFile | base64 --decode > /workspace/oci-cli/config
+      export OCI_CLI_AUTH=api_key
+      export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
+      export OCI_CLI_CONFIG_FILE=/workspace/oci-cli/config
+      
       yum -y install gcc wget openssl-devel bzip2-devel libffi-devel
       wget https://www.python.org/ftp/python/3.8.13/Python-3.8.13.tgz
       tar -xzf Python-3.8.13.tgz
