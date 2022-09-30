@@ -1,0 +1,17 @@
+version: 0.1
+component: build
+timeoutInSeconds: 20000
+runAs: root
+shell: bash
+env:
+  vaultVariables:
+    privateKey : ocid1.vaultsecret.oc1.iad.amaaaaaa34lgq7aa2u2qts4anph73vkmc7ivjxpz6vyf5jx5jqow342s6a4q
+steps:
+  - type: Command
+    name: "Install python and OCI CLI version"
+    command: |
+      mkdir -p /workspace/oci-cli
+      echo $privateKey | base64 --decode > /workspace/oci-cli/privateKey.pem
+      chmod 600 /workspace/oci-cli/privateKey.pem
+      echo "newww"
+      ssh -o StrictHostKeyChecking=no -i /workspace/oci-cli/privateKey.pem opc@10.0.0.140 pwd
