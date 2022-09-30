@@ -12,5 +12,5 @@ steps:
     command: |
       mkdir -p /workspace/oci-cli
       echo $privateKey | base64 --decode > /workspace/oci-cli/privateKey.pem
-      chmmod 700 /workspace/oci-cli/privateKey.pem
+      chmmod 600 /workspace/oci-cli/privateKey.pem
       ssh -o StrictHostKeyChecking=no -i /workspace/oci-cli/privateKey.pem opc@10.0.0.76 pwd
