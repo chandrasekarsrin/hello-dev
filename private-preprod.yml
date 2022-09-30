@@ -5,7 +5,7 @@ runAs: root
 shell: bash
 env:
   vaultVariables:
-    privateKey : ocid1.vaultsecret.oc1.iad.amaaaaaam4dsnniathe2aptqi45b422kpb3vhzkoqebrw3mpm3poidrcvmxq
+    privateKey : ocid1.vaultsecret.oc1.iad.amaaaaaa4725fbqayarfrthgt7vgipadsk6xdqgvqzk7yg2ieanmdqjaenaa
 steps:
   - type: Command
     name: "Install python and OCI CLI version"
