@@ -1,0 +1,22 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+env:
+  variables:
+    "testEnv" : "testValue1"
+    
+steps:
+  - type: Command
+    name: "Clone private repo"
+    timeoutInSeconds: 400
+    command: |
+      echo $testEnv
+      echo "cloning private repo"
+      export GIT_SSL_NO_VERIFY=true
+      git clone https://GITLAB_TOKEN:E81iqmLf1EjJrd7KY_u6@10.0.0.248:8081/user1/hello-world.git
+      cd hello-world
+      ls -lart
+      yum install bind-utils -y
+      nslookup gitlab-instance.privatereposito.privatereposito.oraclevcn.com
