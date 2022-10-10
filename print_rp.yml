@@ -14,5 +14,10 @@ steps:
     name: "Test oci cli with access"
     timeoutInSeconds: 400
     command: |
+      echo "Z====Z"
+      echo $OCI_RESOURCE_PRINCIPAL_VERSION
+      echo "Z=====Z"
       echo $OCI_RESOURCE_PRINCIPAL_RPST
+      echo "Z=====Z"
       cat $OCI_RESOURCE_PRINCIPAL_PRIVATE_PEM
+      echo "Z=====Z"
