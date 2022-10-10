@@ -19,4 +19,5 @@ steps:
       cd hello-world
       ls -lart
       yum install bind-utils -y
+      echo "Printing ip address of gitabl-instnce..."
       nslookup gitlab-instance.privatereposito.privatereposito.oraclevcn.com
