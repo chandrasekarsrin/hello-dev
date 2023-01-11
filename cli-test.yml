@@ -1,1 +1,24 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
 
+env:
+  variables:
+    "testEnv" : "testValue1"
+
+# inputArtifacts:
+#   - name: hello-dev-jar
+#     location: /workspace/Source1/hello123.class
+
+steps:
+  - type: Command
+    name: "Test oci cli with access"
+    timeoutInSeconds: 400
+    failOnStdErr: false
+    command: |
+      echo "Have access"
+       oci os object list --bucket-name test --namespace idllbnfszw6v
+      
+    
