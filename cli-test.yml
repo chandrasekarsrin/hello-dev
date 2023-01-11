@@ -19,6 +19,6 @@ steps:
     failOnStdErr: false
     command: |
       echo "Have access"
-       oci os object list --bucket-name test --namespace idllbnfszw6v
+      oci os object list --bucket-name test --namespace idllbnfszw6v
       
     
