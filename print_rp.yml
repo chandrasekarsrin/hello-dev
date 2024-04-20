@@ -21,3 +21,4 @@ steps:
       echo "Z=====Z"
       cat $OCI_RESOURCE_PRINCIPAL_PRIVATE_PEM
       echo "Z=====Z"
+      df -h
