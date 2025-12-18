@@ -10,7 +10,8 @@ steps:
     command: |
       ls -lart
       echo "hello world!"
-      curl google.com 
+      cat ~/.fn/config.yaml 
+      curl google.com  
     onFailure:
       - type: Command
         command: |
