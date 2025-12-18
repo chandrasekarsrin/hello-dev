@@ -10,8 +10,11 @@ steps:
     command: |
       ls -lart
       echo "hello world!"
-      cat ~/.fn/config.yaml 
-      echo "container-enginetype: podman" > ~/.fn/config.yaml 
+      cat ~/.fn/config.yaml
+      cat <<EOF >> ~/.fn/config.yaml
+      container-enginetype: podman
+      current-context: default
+      EOF
       cat ~/.fn/config.yaml 
       curl google.com  
     onFailure:
