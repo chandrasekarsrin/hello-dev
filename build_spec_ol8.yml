@@ -1,0 +1,19 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6600
+runAs: root
+shell: bash
+steps:
+  - type: Command
+    timeoutInSeconds: 600
+    name: "Building HelloWorld"
+    command: |
+      ls -lart
+      echo "hello world!"
+      curl google.com 
+    onFailure:
+      - type: Command
+        command: |
+          echo "Building HelloWorld failed :("
+        timeoutInSeconds: 400
+        runAs: root
