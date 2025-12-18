@@ -11,7 +11,7 @@ steps:
       ls -lart
       echo "hello world!"
       cat ~/.fn/config.yaml 
-      echo "container-enginetype: docker" > ~/.fn/config.yaml 
+      echo "container-enginetype: podman" > ~/.fn/config.yaml 
       cat ~/.fn/config.yaml 
       curl google.com  
     onFailure:
