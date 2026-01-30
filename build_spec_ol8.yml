@@ -19,7 +19,8 @@ steps:
       nslookup pypi.org
       curl google.com
       curl https://pypi.org
-      pip3 install Flask
+      env | grep -i proxy
+      pip3 config list
     onFailure:
       - type: Command
         command: |
