@@ -19,8 +19,12 @@ steps:
       nslookup pypi.org
       curl google.com
       curl https://pypi.org
+      echo "env proxy"
       env | grep -i proxy
+      echo "pip proxy"
       pip3 config list
+      pip3 config unset global.proxy
+      pip3 install Flask
     onFailure:
       - type: Command
         command: |
