@@ -19,6 +19,7 @@ steps:
       nslookup pypi.org
       curl google.com
       curl https://pypi.org
+      pip3 install Flask
     onFailure:
       - type: Command
         command: |
