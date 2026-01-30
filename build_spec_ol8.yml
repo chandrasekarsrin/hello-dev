@@ -16,7 +16,9 @@ steps:
       current-context: default
       EOF
       cat ~/.fn/config.yaml 
-      curl google.com  
+      nslookup pypi.org
+      curl google.com
+      curl https://pypi.org
     onFailure:
       - type: Command
         command: |
